@@ -7,7 +7,7 @@ function List() {
     <>
       <div>
         {myList.data.map((item, index) => (
-          <ListItems key={item.id} item={item.data} id={item.id}/>
+          <ListItems key={item.id} item={item.data} id={item.id} checked={item.checked}/>
         ))}
       </div>
     </>

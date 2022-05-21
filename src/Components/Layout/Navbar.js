@@ -1,6 +1,7 @@
 import React from "react";
 import {FaPen} from 'react-icons/fa'
 import { NavLink } from "react-router-dom";
+import Theme from "./Theme";
 function Navbar() {
   return (
     <>
@@ -18,6 +19,7 @@ function Navbar() {
               <NavLink to="/about">
                 <div className="btn btn-ghost m-2">About</div>
               </NavLink>
+              <Theme/>
             </div>
           </div>
         </div>

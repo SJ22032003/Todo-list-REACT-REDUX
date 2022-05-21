@@ -1,17 +1,16 @@
-const intialState = {
+const intialState = JSON.parse(localStorage.getItem("mainData")) || {
   data: [],
 };
 
 const Reducer = (state = intialState, action) => {
-  var newState = state;
+  let newState;
   switch (action.type) {
     case "ADD_TODO":
-      localStorage.setItem("mainData", JSON.stringify(newState));
       const { id, data, checked } = action.payload;
-      return {
-        ...newState,
+      newState = {
+        ...state,
         data: [
-          ...newState.data,
+          ...state.data,
           {
             id: id,
             data: data,
@@ -19,27 +18,38 @@ const Reducer = (state = intialState, action) => {
           },
         ],
       };
+      localStorage.setItem("mainData", JSON.stringify(newState));
+      return newState;
+
     case "DELETE_TODO":
-      return {
-        ...newState,
-        data: [...newState.data.filter((item) => item.id !== action.payload)],
+      newState = {
+        ...state,
+        data: [...state.data.filter((item) => item.id !== action.payload)],
       };
+      localStorage.setItem("mainData", JSON.stringify(newState));
+      return newState;
+
     case "REMOVE_TODO":
-      return {
-        ...newState,
+      newState = {
+        ...state,
         data: [],
       };
+      localStorage.setItem("mainData", JSON.stringify(newState));
+      return newState;
     case "IS_DONE":
-      return {
-        ...newState,
-        data: newState.data.map((item) =>
+      newState = {
+        ...state,
+        data: state.data.map((item) =>
           item.id === action.payload
             ? { ...item, checked: !item.checked }
             : item
         ),
       };
-    default:
+      localStorage.setItem("mainData", JSON.stringify(newState));
       return newState;
+
+    default:
+      return state;
   }
 };
 

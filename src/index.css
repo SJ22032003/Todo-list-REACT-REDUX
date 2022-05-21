@@ -59,7 +59,7 @@ body {
   min-width: 200px;
   max-width: 600px;
   height: fit-content;
-  background-color: #21222c;
+  background-color: #21222c; /* #21222c*/
   border-radius: 5px;
   list-style: none;
   display: flex;
@@ -70,4 +70,9 @@ body {
   word-break: break-all;
   padding: 1rem;
 
+}
+
+.faIconStyle {
+  cursor: pointer;
+  font-size:30px;
 }

@@ -1,13 +1,22 @@
 import React from "react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { useSelector } from "react-redux";
 function About() {
+  const myTheme = useSelector((state) => state.changeTheme.check);
+  const myThemeStyle = {
+    color: myTheme && "rgb(101, 101, 101)",
+    backgroundColor: myTheme && "#cfcfcf",
+    background:{
+      backgroundColor: myTheme && "rgb(101, 101, 101)",
+    }
+  }
   return (
     <div className="main-container">
-      <div className="main-about rounded">
+      <div className="main-about rounded" style = {myThemeStyle.background} >
         <div className="about-heading m-3">
           <h1 className="pl-2">About</h1>
         </div>
-        <div className="about-content m-3 p-4 rounded">
+        <div className="about-content m-3 p-4 rounded" style={myThemeStyle}>
           This project is a simple todo list app. It is built using React.js,
           Redux , React-Router. This project is a part of my learning journey. I
           have used React.js for the frontend and Redux for the state
@@ -22,8 +31,8 @@ function About() {
               rel="noreferrer"
             >
               <FaGithub
-                className="mr-2"
-                style={{ fontSize: "30px", cursor: "pointer" }}
+                className="mr-2 faIconStyle"
+                style={ myTheme && {color:"white"}}       
               />
             </a>
             <a
@@ -32,8 +41,8 @@ function About() {
               rel="noreferrer"
             >
               <FaLinkedin
-                className="ml-2"
-                style={{ fontSize: "30px", cursor: "pointer" }}
+                className="ml-2 faIconStyle"
+                style={ myTheme && {color:"white"}}
               />
             </a>
           </div>

@@ -28,3 +28,10 @@ export const isDone = (id) => {
         payload:id,
     }
 }
+
+export const themeChange = (theme) => {
+    return {
+        type : "THEME_CHANGE",
+        payload:theme,
+    }
+}
