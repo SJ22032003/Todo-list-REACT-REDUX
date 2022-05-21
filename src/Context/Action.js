@@ -3,7 +3,8 @@ export const addTodo = (todo) => {
         type : "ADD_TODO",
         payload:{
             id: Math.random() + new Date().getTime().toString(),
-            data:todo
+            data:todo,
+            checked:false
         },
     }
 }
@@ -21,3 +22,9 @@ export const removeTodo = () => {
     }
 }
 
+export const isDone = (id) => {
+    return {
+        type : "IS_DONE",
+        payload:id,
+    }
+}

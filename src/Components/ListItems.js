@@ -1,16 +1,16 @@
 import React from "react";
 import { FaTrash } from "react-icons/fa";
-import {deleteTodo} from '../Context/Action'
-import {useDispatch} from 'react-redux'
-function ListItems({ item , id  }) {
-    const dispatch = useDispatch()
-    const handleDelete = () => {
-        dispatch(deleteTodo(id))
-    }
+import { deleteTodo, isDone } from "../Context/Action";
+import { useDispatch } from "react-redux";
+function ListItems({ item, id }) {
+  const dispatch = useDispatch();
+  const handleDelete = () => {
+    dispatch(deleteTodo(id));
+  };
   return (
     <div className="list-item m-2 p-3">
       <div>
-        <input type="checkbox" />
+        <input type="checkbox" onClick={() => dispatch(isDone(id))} />
         <div className="inline">
           <span className="list-item-text">{item}</span>
         </div>

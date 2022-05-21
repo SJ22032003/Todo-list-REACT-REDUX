@@ -1,10 +1,13 @@
 import React from "react";
 import { FaPlus } from "react-icons/fa";
 import { useState } from "react";
-import { useDispatch ,useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addTodo, removeTodo } from "../Context/Action";
 function Input() {
-    const myListLength = useSelector((state) => state.Reducer.data.length);
+  const myListLength = useSelector(
+    (state) =>
+      state.Reducer.data.filter((item) => item.checked === false).length
+  );
   const dispatch = useDispatch();
   const [text, setText] = useState("");
 
