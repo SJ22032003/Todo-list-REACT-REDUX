@@ -15,7 +15,7 @@ function Input() {
       state.Reducer.data.filter((item) => item.checked === false).length
   );
   const myArrayState = useSelector((state) => state.Reducer.data);
-  console.log(myArrayState);
+  // console.log(myArrayState);
   const dispatch = useDispatch();
   const [text, setText] = useState("");
 
@@ -36,7 +36,6 @@ function Input() {
   };
   const handleAllComplete = () => {
     dispatch(allComplete());
-    // window.location.reload();
   };
   return (
     <>
@@ -73,7 +72,7 @@ function Input() {
           <input
             type="text"
             placeholder="what now ?....."
-            className="input m-1 sm:w-30 md:w-80"
+            className="input m-1 sm:w-30 md:w-80 setBack"
             value={text}
             onChange={(e) => setText(e.target.value)}
           />

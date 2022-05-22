@@ -19,7 +19,7 @@ function ListItems({ item, id , checked }) {
   return (
     <div className="list-item m-2 p-3 text-lg" style={checkTheme}>
       <div>
-        <input type="checkbox" onClick={() => dispatch(isDone(id))} checked={checked} className="checkbox checkbox-xs"  />
+        <input type="checkbox" onClick={() => dispatch(isDone(id))} onChange={(e)=>{}} checked={checked} className="checkbox checkbox-xs"  />
         <div className="inline">
           <span className="list-item-text" style={done}>{item}</span>
         </div>
