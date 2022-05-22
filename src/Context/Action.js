@@ -29,6 +29,12 @@ export const isDone = (id) => {
     }
 }
 
+export const isComplete = () => {
+    return {
+        type : "IS_COMPLETE",
+    }
+}
+
 export const themeChange = (theme) => {
     return {
         type : "THEME_CHANGE",

@@ -48,6 +48,14 @@ const Reducer = (state = intialState, action) => {
       localStorage.setItem("mainData", JSON.stringify(newState));
       return newState;
 
+    case "IS_COMPLETE":
+      newState = {
+        ...state,
+        data: [...state.data.filter((item) => item.checked !== true)],
+      }
+      localStorage.setItem("mainData", JSON.stringify(newState));
+      return newState;
+
     default:
       return state;
   }
