@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
 import { FaPlus, FaCheck } from "react-icons/fa";
 import { useState } from "react";
@@ -33,6 +34,10 @@ function Input() {
       dispatch(removeTodo());
     }
   };
+  const handleAllComplete = () => {
+    dispatch(allComplete());
+    window.location.reload();
+  };
   return (
     <>
       <div className="clear-left m-3">
@@ -57,12 +62,10 @@ function Input() {
         <button
           className="badge badge-warning m-2 rounded-full"
           style={{ display: myListLength === 0 ? "none" : "" }}
-          onClick={() => dispatch(allComplete())}
+          onClick={handleAllComplete}
           title="put all completed"
         >
-          <a href="/home">
-            <FaCheck />
-          </a>
+          <FaCheck />
         </button>
       </div>
       <div className="todo-list-form m-4">
