@@ -37,7 +37,7 @@ function ListItems({ item, id, checked }) {
     color: checked && "grey",
   };
   return (
-    <div className="list-item m-2 p-3 text-lg" style={checkTheme}>
+    <div className="list-item m-2 p-1 text-lg" style={checkTheme}>
       <div>
         <input
           type="checkbox"
@@ -55,7 +55,7 @@ function ListItems({ item, id, checked }) {
           </form>
         </div>
       </div>
-      <div>
+      <div className="editButtons">
         <button className="btn btn-sm m-1" onClick={handleEdit}>
           <FaPen hidden={showTick}/>
           <FaCheck hidden={!showTick} onClick={handleEditSubmit} style={{color:"pink"}}/>

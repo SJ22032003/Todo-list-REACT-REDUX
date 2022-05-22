@@ -80,3 +80,13 @@ body {
 .setBack{
   border:grey solid 2px;
 }
+
+.editButtons{
+  display:flex;
+}
+
+@media  (max-width:600px) {
+  .editButtons{
+    flex-direction: column;
+  }
+}
