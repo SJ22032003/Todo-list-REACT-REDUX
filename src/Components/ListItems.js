@@ -5,7 +5,6 @@ import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 function ListItems({ item, id , checked }) {
   const myTheme = useSelector((state) => state.changeTheme.check);
-  // console.log(myTheme);
   const dispatch = useDispatch();
   const handleDelete = () => {
     dispatch(deleteTodo(id));
@@ -13,12 +12,16 @@ function ListItems({ item, id , checked }) {
   const checkTheme = {
     backgroundColor: myTheme && "#cfcfcf",
   }
+  const done = {
+    textDecoration : checked && "line-through",
+    color: checked && "grey",
+  }
   return (
     <div className="list-item m-2 p-3 text-lg" style={checkTheme}>
       <div>
         <input type="checkbox" onClick={() => dispatch(isDone(id))} defaultChecked={checked} className="checkbox checkbox-xs"  />
         <div className="inline">
-          <span className="list-item-text">{item}</span>
+          <span className="list-item-text" style={done}>{item}</span>
         </div>
       </div>
       <div>
