@@ -64,6 +64,15 @@ const Reducer = (state = intialState, action) => {
       localStorage.setItem("mainData", JSON.stringify(newState));
       return newState;
 
+    case "EDIT_TODO":
+      const { editId, editText } = action.payload;
+      newState = {
+        ...state,
+        data: state.data.map((item) => item.id === editId ? {...item, data: editText} : item),
+      }
+      localStorage.setItem("mainData", JSON.stringify(newState));
+      return newState;
+
     default:
       return state;
   }

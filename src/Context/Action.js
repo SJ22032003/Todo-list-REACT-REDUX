@@ -41,6 +41,16 @@ export const allComplete = () => {
     }
 }
 
+export const editTodo = (editId , editText) => {
+    return {
+        type : "EDIT_TODO",
+        payload :{
+            editId : editId,
+            editText : editText,
+        }
+    }
+}
+
 export const themeChange = (theme) => {
     return {
         type : "THEME_CHANGE",
