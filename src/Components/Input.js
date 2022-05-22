@@ -36,7 +36,7 @@ function Input() {
   };
   const handleAllComplete = () => {
     dispatch(allComplete());
-    window.location.reload();
+    // window.location.reload();
   };
   return (
     <>
