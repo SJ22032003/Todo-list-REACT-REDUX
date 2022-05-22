@@ -52,7 +52,15 @@ const Reducer = (state = intialState, action) => {
       newState = {
         ...state,
         data: [...state.data.filter((item) => item.checked !== true)],
-      }
+      };
+      localStorage.setItem("mainData", JSON.stringify(newState));
+      return newState;
+
+    case "ALL_COMPLETE":
+      newState = {
+        ...state,
+        data: [...state.data.map((item) => ({ ...item, checked: true }))],
+      };
       localStorage.setItem("mainData", JSON.stringify(newState));
       return newState;
 

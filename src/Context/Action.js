@@ -35,6 +35,12 @@ export const isComplete = () => {
     }
 }
 
+export const allComplete = () => {
+    return {
+        type : "ALL_COMPLETE",
+    }
+}
+
 export const themeChange = (theme) => {
     return {
         type : "THEME_CHANGE",
